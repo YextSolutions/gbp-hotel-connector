@@ -9,8 +9,8 @@
         "source": "gbp",
         "operation": "fetchHotels",
         "inputs": {
-          "googleLinkedAccount": "google.danaYextAccount",
-          "locationGroup": "106039161273294777975"
+          "googleLinkedAccount": "${{linkedAccountId}}",
+          "locationGroup": "${{locationGroupId}}"
         }
       }
     },

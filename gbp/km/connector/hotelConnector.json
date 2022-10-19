@@ -1,0 +1,6682 @@
+{
+  "$id": "gbpHotel_hotelConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "GBP Hotel Connector",
+  "entityType": "hotel",
+  "source": {
+    "sourceConfig": {
+      "nativeSourceConfig": {
+        "source": "gbp",
+        "operation": "fetchHotels",
+        "inputs": {
+          "googleLinkedAccount": "google.danaYextAccount",
+          "locationGroup": "106039161273294777975"
+        }
+      }
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "External Listings ID",
+        "path": "name"
+      },
+      {
+        "type": "JSON",
+        "header": "Languages",
+        "path": "languageCode"
+      },
+      {
+        "type": "JSON",
+        "header": "Entity ID",
+        "path": "storeCode"
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "title"
+      },
+      {
+        "type": "JSON",
+        "header": "Phone Extension",
+        "path": "storefrontAddress.regionCode"
+      },
+      {
+        "type": "JSON",
+        "header": "Main Phone",
+        "path": "phoneNumbers.primaryPhone"
+      },
+      {
+        "type": "JSON",
+        "header": "Primary Category ID",
+        "path": "categories.primaryCategory.name"
+      },
+      {
+        "type": "JSON",
+        "header": "Secondary Category IDs",
+        "path": "categories.additionalCategories[].name"
+      },
+      {
+        "type": "JSON",
+        "header": "Address \u003e Country Code",
+        "path": "storefrontAddress.regionCode"
+      },
+      {
+        "type": "JSON",
+        "header": "Address \u003e Postal Code",
+        "path": "storefrontAddress.postalCode"
+      },
+      {
+        "type": "JSON",
+        "header": "Address \u003e Region",
+        "path": "storefrontAddress.administrativeArea"
+      },
+      {
+        "type": "JSON",
+        "header": "Address \u003e City",
+        "path": "storefrontAddress.locality"
+      },
+      {
+        "type": "JSON",
+        "header": "Address \u003e Sublocality",
+        "path": "storefrontAddress.sublocality"
+      },
+      {
+        "type": "JSON",
+        "header": "Address Lines",
+        "path": "storefrontAddress.addressLines"
+      },
+      {
+        "type": "JSON",
+        "header": "Website URL",
+        "path": "websiteUri"
+      },
+      {
+        "type": "JSON",
+        "header": "GBP Labels",
+        "path": "labels"
+      },
+      {
+        "type": "JSON",
+        "header": "Display Coordinate \u003e Latitude",
+        "path": "latlng.latitude"
+      },
+      {
+        "type": "JSON",
+        "header": "Display Coordinate \u003e Longitude",
+        "path": "latlng.longitude"
+      },
+      {
+        "type": "JSON",
+        "header": "Closed",
+        "path": "openInfo.status"
+      },
+      {
+        "type": "JSON",
+        "header": "Google Place ID",
+        "path": "metadata.placeId"
+      },
+      {
+        "type": "JSON",
+        "header": "Duplicate Location",
+        "path": "metadata.duplicateLocation"
+      },
+      {
+        "type": "JSON",
+        "header": "Description",
+        "path": "profile.description"
+      },
+      {
+        "type": "JSON",
+        "header": "Google Entity Relationship \u003e Place Id",
+        "path": "relationshipData.parentLocation.placeId"
+      },
+      {
+        "type": "JSON",
+        "header": "Google Entity Relationship \u003e Type",
+        "path": "relationshipData.parentLocation.relationshipType"
+      },
+      {
+        "type": "JSON",
+        "header": "Attribute Names",
+        "path": "attributes[?valueType\u003d\u003d\u0027BOOL\u0027].name"
+      },
+      {
+        "type": "JSON",
+        "header": "Attribute Values",
+        "path": "attributes[?valueType\u003d\u003d\u0027BOOL\u0027].values"
+      },
+      {
+        "type": "JSON",
+        "header": "Landing Page URL",
+        "path": "mediaItems.attribution.profileUrl"
+      },
+      {
+        "type": "JSON",
+        "header": "Logo",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Logo Description",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Cover Photo",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Cover Photo Description",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Photo Gallery",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Photo Description",
+        "path": "media[]"
+      },
+      {
+        "type": "JSON",
+        "header": "Videos",
+        "path": "media[?mediaFormat\u003d\u003d\u0027VIDEO\u0027].sourceUrl"
+      },
+      {
+        "type": "JSON",
+        "header": "Video Description",
+        "path": "media[?mediaFormat\u003d\u003d\u0027VIDEO\u0027].sourceUrl"
+      },
+      {
+        "type": "JSON",
+        "header": "Monday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Monday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Tuesday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Tuesday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Wednesday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Wednesday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Thursday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Thursday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Friday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Friday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Saturday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Saturday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Sunday Open Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Sunday Close Time",
+        "path": "regularHours.periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Monday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Tuesday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Wednesday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Thursday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Friday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Saturday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Sunday IsClosed",
+        "path": "regularHours.periods[].openDay"
+      },
+      {
+        "type": "JSON",
+        "header": "Special Hours Start Date",
+        "path": "specialHours"
+      },
+      {
+        "type": "JSON",
+        "header": "Special Hours Open Time",
+        "path": "specialHours"
+      },
+      {
+        "type": "JSON",
+        "header": "Special Hours Close Time",
+        "path": "specialHours"
+      },
+      {
+        "type": "JSON",
+        "header": "Special Hours IsClosed",
+        "path": "specialHours"
+      },
+      {
+        "type": "JSON",
+        "header": "Coming Soon (Year)",
+        "path": "openInfo.openingDate.year"
+      },
+      {
+        "type": "JSON",
+        "header": "Coming Soon (Month)",
+        "path": "openInfo.openingDate.month"
+      },
+      {
+        "type": "JSON",
+        "header": "Coming Soon (Day)",
+        "path": "openInfo.openingDate.day"
+      },
+      {
+        "type": "JSON",
+        "header": "Reopening Date",
+        "path": "openInfo"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Access Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ACCESS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BREAKFAST\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Brunch Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027BRUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Delivery Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DELIVERY\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Dinner Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DINNER\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Drive Through Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027DRIVE_THROUGH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Happy Hour Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027HAPPY_HOUR\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Kitchen Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027KITCHEN\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Lunch Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027LUNCH\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Online Service Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027ONLINE_SERVICE_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Pickup Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027PICKUP\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Senior Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027SENIOR_HOURS\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Monday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Monday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027MONDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Tuesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Tuesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027TUESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Wednesday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Wednesday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027WEDNESDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Thursday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Thursday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027THURSDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Friday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Friday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027FRIDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Saturday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Saturday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027SATURDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Sunday Open Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].openTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Sunday Close Time",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027].periods[?openDay\u003d\u003d\u0027SUNDAY\u0027].closeTime"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Monday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Tuesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Wednesday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Thursday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Friday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Saturday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Takeout Hours - Sunday Closed",
+        "path": "moreHours[?hoursTypeId\u003d\u003d\u0027TAKEOUT\u0027]"
+      },
+      {
+        "type": "JSON",
+        "header": "Year Established",
+        "path": "lodging.property.builtYear"
+      },
+      {
+        "type": "JSON",
+        "header": "Year Last Renovated",
+        "path": "lodging.property.lastRenovatedYear"
+      },
+      {
+        "type": "JSON",
+        "header": "Room Count",
+        "path": "lodging.property.roomsCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Floor Count",
+        "path": "lodging.property.floorCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Front Desk",
+        "path": "lodging.services"
+      },
+      {
+        "type": "JSON",
+        "header": "Concierge",
+        "path": "lodging.services.concierge"
+      },
+      {
+        "type": "JSON",
+        "header": "Elevator",
+        "path": "lodging.services.elevator"
+      },
+      {
+        "type": "JSON",
+        "header": "Baggage Storage",
+        "path": "lodging.services.baggageStorage"
+      },
+      {
+        "type": "JSON",
+        "header": "Laundry",
+        "path": "lodging.services"
+      },
+      {
+        "type": "JSON",
+        "header": "Social Hour",
+        "path": "lodging.services.socialHour"
+      },
+      {
+        "type": "JSON",
+        "header": "Wake Up Calls",
+        "path": "lodging.services.wakeupCalls"
+      },
+      {
+        "type": "JSON",
+        "header": "Convenience Store",
+        "path": "lodging.services.convenienceStore"
+      },
+      {
+        "type": "JSON",
+        "header": "Gift Shop",
+        "path": "lodging.services.giftShop"
+      },
+      {
+        "type": "JSON",
+        "header": "Currency Exchange",
+        "path": "lodging.services.currencyExchange"
+      },
+      {
+        "type": "JSON",
+        "header": "Payment Options",
+        "path": "lodging.policies.PaymentOptions"
+      },
+      {
+        "type": "JSON",
+        "header": "Check In Time (Hours)",
+        "path": "lodging.policies.checkinTime.hours"
+      },
+      {
+        "type": "JSON",
+        "header": "Check In Time (Min)",
+        "path": "lodging.policies.checkinTime.minutes"
+      },
+      {
+        "type": "JSON",
+        "header": "Check Out Time (Hours)",
+        "path": "lodging.policies.checkoutTime.hours"
+      },
+      {
+        "type": "JSON",
+        "header": "Check Out Time (Minutes)",
+        "path": "lodging.policies.checkoutTime.minutes"
+      },
+      {
+        "type": "JSON",
+        "header": "Kids Stay Free",
+        "path": "lodging.policies.kidsStayFree"
+      },
+      {
+        "type": "JSON",
+        "header": "Max Number Of Kids Stay Free",
+        "path": "lodging.policies.maxKidsStayFreeCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Smoke Free Property",
+        "path": "lodging.policies.smokeFreeProperty"
+      },
+      {
+        "type": "JSON",
+        "header": "All Inclusive",
+        "path": "lodging.policies"
+      },
+      {
+        "type": "JSON",
+        "header": "Room Service",
+        "path": "lodging.foodAndDrink"
+      },
+      {
+        "type": "JSON",
+        "header": "Restaurant Count",
+        "path": "lodging.foodAndDrink.restaurantCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Food and Drink \u003e Table Service",
+        "path": "lodging.foodAndDrink.tableService"
+      },
+      {
+        "type": "JSON",
+        "header": "Buffet",
+        "path": "lodging.foodAndDrink"
+      },
+      {
+        "type": "JSON",
+        "header": "Table Service",
+        "path": "lodging.foodAndDrink.tableService"
+      },
+      {
+        "type": "JSON",
+        "header": "Breakfast",
+        "path": "lodging.foodAndDrink"
+      },
+      {
+        "type": "JSON",
+        "header": "Bar",
+        "path": "lodging.foodAndDrink.bar"
+      },
+      {
+        "type": "JSON",
+        "header": "Vending Machine",
+        "path": "lodging.foodAndDrink.vendingMachine"
+      },
+      {
+        "type": "JSON",
+        "header": "Pools",
+        "path": "lodging.pools.pool"
+      },
+      {
+        "type": "JSON",
+        "header": "Indoor Pools",
+        "path": "lodging.pools.indoorPool"
+      },
+      {
+        "type": "JSON",
+        "header": "Indoor Pool Count",
+        "path": "lodging.pools.indoorPoolCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Outdoor Pools",
+        "path": "lodging.pools.outdoorPool"
+      },
+      {
+        "type": "JSON",
+        "header": "Outdoor Pools Count",
+        "path": "lodging.pools.outdoorPoolsCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Hot Tub",
+        "path": "lodging.pools.hotTub"
+      },
+      {
+        "type": "JSON",
+        "header": "Waterslide",
+        "path": "lodging.pools.waterslide"
+      },
+      {
+        "type": "JSON",
+        "header": "Lazy River",
+        "path": "lodging.pools.lazyRiver"
+      },
+      {
+        "type": "JSON",
+        "header": "Adult Pool",
+        "path": "lodging.pools.adultPool"
+      },
+      {
+        "type": "JSON",
+        "header": "Wading Pool",
+        "path": "lodging.pools.wadingPool"
+      },
+      {
+        "type": "JSON",
+        "header": "Wave Pool",
+        "path": "lodging.pools.wavePool"
+      },
+      {
+        "type": "JSON",
+        "header": "Water Park",
+        "path": "lodging.pools.waterPark"
+      },
+      {
+        "type": "JSON",
+        "header": "Fitness Center",
+        "path": "lodging.wellness"
+      },
+      {
+        "type": "JSON",
+        "header": "Elliptical Machine",
+        "path": "lodging.wellness.ellipticalMachine"
+      },
+      {
+        "type": "JSON",
+        "header": "Treadmill",
+        "path": "lodging.wellness.treadmill"
+      },
+      {
+        "type": "JSON",
+        "header": "Weight Machine",
+        "path": "lodging.wellness.weightMachine"
+      },
+      {
+        "type": "JSON",
+        "header": "Free Weights",
+        "path": "lodging.wellness.freeWeights"
+      },
+      {
+        "type": "JSON",
+        "header": "Spa",
+        "path": "lodging.wellness.spa"
+      },
+      {
+        "type": "JSON",
+        "header": "Salon",
+        "path": "lodging.wellness.salon"
+      },
+      {
+        "type": "JSON",
+        "header": "Sauna",
+        "path": "lodging.wellness.sauna"
+      },
+      {
+        "type": "JSON",
+        "header": "Massage",
+        "path": "lodging.wellness.massage"
+      },
+      {
+        "type": "JSON",
+        "header": "Doctor On Call",
+        "path": "lodging.wellness.doctorOnCall"
+      },
+      {
+        "type": "JSON",
+        "header": "Game Room",
+        "path": "lodging.activities.gameRoom"
+      },
+      {
+        "type": "JSON",
+        "header": "Nightclub",
+        "path": "lodging.activities.nightclub"
+      },
+      {
+        "type": "JSON",
+        "header": "Casino",
+        "path": "lodging.activities.casino"
+      },
+      {
+        "type": "JSON",
+        "header": "Boutique Stores",
+        "path": "lodging.activities.boutiqueStores"
+      },
+      {
+        "type": "JSON",
+        "header": "Tennis",
+        "path": "lodging.activities.tennis"
+      },
+      {
+        "type": "JSON",
+        "header": "Golf",
+        "path": "lodging.activities.golf"
+      },
+      {
+        "type": "JSON",
+        "header": "Horseback Riding",
+        "path": "lodging.activities.horsebackRiding"
+      },
+      {
+        "type": "JSON",
+        "header": "Snorkeling",
+        "path": "lodging.activities.snorkeling"
+      },
+      {
+        "type": "JSON",
+        "header": "Scuba",
+        "path": "lodging.activities.scuba"
+      },
+      {
+        "type": "JSON",
+        "header": "Water Skiing",
+        "path": "lodging.activities.waterSkiing"
+      },
+      {
+        "type": "JSON",
+        "header": "Bicycle",
+        "path": "lodging.activities"
+      },
+      {
+        "type": "JSON",
+        "header": "Watercraft Rental",
+        "path": "lodging.activities"
+      },
+      {
+        "type": "JSON",
+        "header": "Beach Access",
+        "path": "lodging.activities.beachAccess"
+      },
+      {
+        "type": "JSON",
+        "header": "Private Beach",
+        "path": "lodging.activities.privateBeach"
+      },
+      {
+        "type": "JSON",
+        "header": "Beach Front",
+        "path": "lodging.activities.beachFront"
+      },
+      {
+        "type": "JSON",
+        "header": "Airport Transfer",
+        "path": "lodging.transportation.transfer"
+      },
+      {
+        "type": "JSON",
+        "header": "Airport Shuttle",
+        "path": "lodging.transportation"
+      },
+      {
+        "type": "JSON",
+        "header": "Local Shuttle",
+        "path": "lodging.transportation.localShuttle"
+      },
+      {
+        "type": "JSON",
+        "header": "Car Rental",
+        "path": "lodging.transportation.carRentalOnProperty"
+      },
+      {
+        "type": "JSON",
+        "header": "Private Car Service",
+        "path": "lodging.transportation"
+      },
+      {
+        "type": "JSON",
+        "header": "Babysitting",
+        "path": "lodging.families.babysittingOffered"
+      },
+      {
+        "type": "JSON",
+        "header": "Kids Friendly",
+        "path": "lodging.families.kidsActivities"
+      },
+      {
+        "type": "JSON",
+        "header": "Kids Club",
+        "path": "lodging.families.kidsClub"
+      },
+      {
+        "type": "JSON",
+        "header": "Wifi Available",
+        "path": "lodging.connectivity"
+      },
+      {
+        "type": "JSON",
+        "header": "Wifi Details",
+        "path": "lodging.connectivity"
+      },
+      {
+        "type": "JSON",
+        "header": "Business Center",
+        "path": "lodging.business.businessCenter"
+      },
+      {
+        "type": "JSON",
+        "header": "Meeting Room Count",
+        "path": "lodging.business.meetingRoomsCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Mobility Accessible",
+        "path": "lodging.accessibility.mobilityAccessible"
+      },
+      {
+        "type": "JSON",
+        "header": "Accessibility Details",
+        "path": "lodging.accessibility"
+      },
+      {
+        "type": "JSON",
+        "header": "Pets Allowed",
+        "path": "lodging.pets"
+      },
+      {
+        "type": "JSON",
+        "header": "Dogs Allowed",
+        "path": "lodging.pets.dogsAllowed"
+      },
+      {
+        "type": "JSON",
+        "header": "Cats Allowed",
+        "path": "lodging.pets.catsAllowed"
+      },
+      {
+        "type": "JSON",
+        "header": "Parking",
+        "path": "lodging.parking"
+      },
+      {
+        "type": "JSON",
+        "header": "Self Parking",
+        "path": "lodging.parking"
+      },
+      {
+        "type": "JSON",
+        "header": "Valet Parking",
+        "path": "lodging.parking"
+      },
+      {
+        "type": "JSON",
+        "header": "Housekeeping",
+        "path": "lodging.housekeeping"
+      },
+      {
+        "type": "JSON",
+        "header": "Turndown Service",
+        "path": "lodging.housekeeping.turndownService"
+      },
+      {
+        "type": "JSON",
+        "header": "Common Areas Enhanced Cleaning",
+        "path": "lodging.healthAndSafety.enhancedCleaning.commonAreasEnhancedCleaning"
+      },
+      {
+        "type": "JSON",
+        "header": "Guest Rooms Enhanced Cleaning",
+        "path": "lodging.healthAndSafety.enhancedCleaning.guestRoomsEnhancedCleaning"
+      },
+      {
+        "type": "JSON",
+        "header": "Commercial Grade Disinfectant Used",
+        "path": "lodging.healthAndSafety.enhancedCleaning.commercialGradeDisinfectantCleaning"
+      },
+      {
+        "type": "JSON",
+        "header": "Employees Trained In Cleaning Procedures",
+        "path": "lodging.healthAndSafety.enhancedCleaning.employeesTrainedCleaningProcedures"
+      },
+      {
+        "type": "JSON",
+        "header": "Employees Trained In Hand Washing",
+        "path": "lodging.healthAndSafety.enhancedCleaning.employeesTrainedThoroughHandWashing"
+      },
+      {
+        "type": "JSON",
+        "header": "Employees Wear Protective Equipment",
+        "path": "lodging.healthAndSafety.enhancedCleaning.employeesWearProtectiveEquipment"
+      },
+      {
+        "type": "JSON",
+        "header": "Safe Handling For Food Services",
+        "path": "lodging.healthAndSafety.increasedFoodSafety.foodPreparationAndServingAdditionalSafety"
+      },
+      {
+        "type": "JSON",
+        "header": "Additional Sanitation In Food Areas",
+        "path": "lodging.healthAndSafety.increasedFoodSafety.diningAreasAdditionalSanitation"
+      },
+      {
+        "type": "JSON",
+        "header": "Individually Packages Meals Available",
+        "path": "lodging.healthAndSafety.increasedFoodSafety.individualPackagedMeals"
+      },
+      {
+        "type": "JSON",
+        "header": "Disposable Flatware",
+        "path": "lodging.healthAndSafety.increasedFoodSafety.disposableFlatware"
+      },
+      {
+        "type": "JSON",
+        "header": "Single Use Menus",
+        "path": "lodging.healthAndSafety.increasedFoodSafety.singleUseFoodMenus"
+      },
+      {
+        "type": "JSON",
+        "header": "High Touch Items Removed From Common Areas",
+        "path": "lodging.healthAndSafety.minimizedContact.noHighTouchItemsCommonAreas"
+      },
+      {
+        "type": "JSON",
+        "header": "High Touch Items Removed From Guest Rooms",
+        "path": "lodging.healthAndSafety.minimizedContactnoHighTouchItemsGuestRooms"
+      },
+      {
+        "type": "JSON",
+        "header": "Digital Guest Room Keys",
+        "path": "lodging.healthAndSafety.minimizedContact.digitalGuestRoomKeys"
+      },
+      {
+        "type": "JSON",
+        "header": "Plastic Keycards Disinfected Or Discarded",
+        "path": "lodging.healthAndSafety.minimizedContact.plasticKeycardsDisinfected"
+      },
+      {
+        "type": "JSON",
+        "header": "Room Bookings Buffer",
+        "path": "lodging.healthAndSafety.minimizedContact.roomBookingsBuffer"
+      },
+      {
+        "type": "JSON",
+        "header": "Request Only Housekeeping",
+        "path": "lodging.healthAndSafety.minimizedContact.housekeepingScheduledRequestOnly"
+      },
+      {
+        "type": "JSON",
+        "header": "Contactless Checkin Or Checkout",
+        "path": "lodging.healthAndSafety.minimizedContact.contactlessCheckinCheckout"
+      },
+      {
+        "type": "JSON",
+        "header": "Sanitizer Available",
+        "path": "lodging.healthAndSafety.personalProtection.commonAreasOfferSanitizingItems"
+      },
+      {
+        "type": "JSON",
+        "header": "In Room Hygiene Kits",
+        "path": "lodging.healthAndSafety.personalProtection.guestRoomHygieneKitsAvailable"
+      },
+      {
+        "type": "JSON",
+        "header": "Protective Equipment Available",
+        "path": "lodging.healthAndSafety.personalProtection.protectiveEquipmentAvailable"
+      },
+      {
+        "type": "JSON",
+        "header": "Masks Required",
+        "path": "lodging.healthAndSafety.personalProtection.faceMaskRequired"
+      },
+      {
+        "type": "JSON",
+        "header": "Physical Distancing Required",
+        "path": "lodging.healthAndSafety.physicalDistancing.physicalDistancingRequired"
+      },
+      {
+        "type": "JSON",
+        "header": "Plexiglass Used",
+        "path": "lodging.healthAndSafety.physicalDistancing.safetyDividers"
+      },
+      {
+        "type": "JSON",
+        "header": "Limited Occupancy In Shared Areas",
+        "path": "lodging.healthAndSafety.physicalDistancing.sharedAreasLimitedOccupancy"
+      },
+      {
+        "type": "JSON",
+        "header": "Private Spaces In Wellness Areas",
+        "path": "lodging.healthAndSafety.physicalDistancing.wellnessAreasHavePrivateSpaces"
+      },
+      {
+        "type": "JSON",
+        "header": "Common Areas Arranged For Distancing",
+        "path": "lodging.healthAndSafety.physicalDistancing.commonAreasPhysicalDistancingArranged"
+      },
+      {
+        "type": "JSON",
+        "header": "Energy Conservation Program",
+        "path": "lodging.sustainability.energyEfficiency.energyConservationProgram"
+      },
+      {
+        "type": "JSON",
+        "header": "Indepent Organization Audits Energy Use",
+        "path": "lodging.sustainability.energyEfficiency.independentOrganizationAuditsEnergyUse"
+      },
+      {
+        "type": "JSON",
+        "header": "Carbon Free Energy Sources",
+        "path": "lodging.sustainability.energyEfficiency.carbonFreeEnergySources"
+      },
+      {
+        "type": "JSON",
+        "header": "Energy Efficient Heating And Cooling Systems",
+        "path": "lodging.sustainability.energyEfficiency.energyEfficientHeatingAndCoolingSystems"
+      },
+      {
+        "type": "JSON",
+        "header": "Energy Efficient Lighting",
+        "path": "lodging.sustainability.energyEfficiency.energyEfficientLighting"
+      },
+      {
+        "type": "JSON",
+        "header": "Energy Saving Thermostats",
+        "path": "lodging.sustainability.energyEfficiency.energySavingThermostats"
+      },
+      {
+        "type": "JSON",
+        "header": "Recycling Program",
+        "path": "lodging.sustainability.wasteReduction.recyclingProgram"
+      },
+      {
+        "type": "JSON",
+        "header": "Donates Excess Food",
+        "path": "lodging.sustainability.wasteReduction.donatesExcessFood"
+      },
+      {
+        "type": "JSON",
+        "header": "Composts Excess Food",
+        "path": "lodging.sustainability.wasteReduction.compostsExcessFood"
+      },
+      {
+        "type": "JSON",
+        "header": "Soap Donation Program",
+        "path": "lodging.sustainability.wasteReduction.soapDonationProgram"
+      },
+      {
+        "type": "JSON",
+        "header": "Toiletry Donation Program",
+        "path": "lodging.sustainability.wasteReduction.toiletryDonationProgram"
+      },
+      {
+        "type": "JSON",
+        "header": "Safely Handles Hazardous Substances",
+        "path": "lodging.sustainability.wasteReduction.safelyHandlesHazardousSubstances"
+      },
+      {
+        "type": "JSON",
+        "header": "Safely Disposes Electronics",
+        "path": "lodging.sustainability.wasteReduction.safelyDisposesElectronics"
+      },
+      {
+        "type": "JSON",
+        "header": "Safely Disposes Batteries",
+        "path": "lodging.sustainability.wasteReduction.safelyDisposesBatteries"
+      },
+      {
+        "type": "JSON",
+        "header": "Safely Disposes Lightbulbs",
+        "path": "lodging.sustainability.wasteReduction.safelyDisposesLightbulbs"
+      },
+      {
+        "type": "JSON",
+        "header": "Refillable Toiletry Containers",
+        "path": "lodging.sustainability.wasteReduction.refillableToiletryContainers"
+      },
+      {
+        "type": "JSON",
+        "header": "Water Bottle Filling Stations",
+        "path": "lodging.sustainability.wasteReduction.waterBottleFillingStations"
+      },
+      {
+        "type": "JSON",
+        "header": "Compostable Food Containers And Cutlery",
+        "path": "lodging.sustainability.wasteReduction.compostableFoodContainersAndCutlery"
+      },
+      {
+        "type": "JSON",
+        "header": "No Styrofoam Food Containers",
+        "path": "lodging.sustainability.wasteReduction.noStyrofoamFoodContainers"
+      },
+      {
+        "type": "JSON",
+        "header": "No Single User Plastic Water Bottles",
+        "path": "lodging.sustainability.wasteReduction.noSingleUserPlasticWaterBottles"
+      },
+      {
+        "type": "JSON",
+        "header": "No Single Use Plastic Straws",
+        "path": "lodging.sustainability.wasteReduction.noSingleUsePlasticStraws"
+      },
+      {
+        "type": "JSON",
+        "header": "Responsible Purchasing Policy",
+        "path": "lodging.sustainability.SustainableSourcing.responsiblePurchasingPolicy"
+      },
+      {
+        "type": "JSON",
+        "header": "Organic Food And Beverages",
+        "path": "lodging.sustainability.SustainableSourcing.organicFoodAndBeverages"
+      },
+      {
+        "type": "JSON",
+        "header": "Locally Sourced Food And Beverages",
+        "path": "lodging.sustainability.SustainableSourcing.locallySourcedFoodAndBeverages"
+      },
+      {
+        "type": "JSON",
+        "header": "Responsibly Sources Seafood",
+        "path": "lodging.sustainability.SustainableSourcing.responsiblySourcesSeafood"
+      },
+      {
+        "type": "JSON",
+        "header": "Organic Cage Free Eggs",
+        "path": "lodging.sustainability.SustainableSourcing.organicCageFreeEggs"
+      },
+      {
+        "type": "JSON",
+        "header": "Vegetarian Meals Available",
+        "path": "lodging.sustainability.SustainableSourcing.vegetarianMeals"
+      },
+      {
+        "type": "JSON",
+        "header": "Vegan Meals Available",
+        "path": "lodging.sustainability.SustainableSourcing.veganMeals"
+      },
+      {
+        "type": "JSON",
+        "header": "Eco Friendly Toiletries",
+        "path": "lodging.sustainability.SustainableSourcing.ecoFriendlyToiletries"
+      },
+      {
+        "type": "JSON",
+        "header": "Breeam Rating",
+        "path": "lodging.sustainability.SustainabilityCertifications.breeamCertification"
+      },
+      {
+        "type": "JSON",
+        "header": "Leed Rating",
+        "path": "lodging.susatability.SustainabilityCertifications.leedCertification"
+      },
+      {
+        "type": "JSON",
+        "header": "Eco Certifications",
+        "path": "lodging.sustainability.SustainabilityCertifications.ecoCertifications"
+      },
+      {
+        "type": "JSON",
+        "header": "Hotel Category",
+        "path": "categories.primaryCategory.name"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Primary Category ID",
+          "Secondary Category IDs"
+        ],
+        "newColumnHeader": "Categories",
+        "delimiter": ","
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Categories",
+            "Hotel Category"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "categories/",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Categories"
+          ]
+        },
+        "valueToFind": {
+          "regex": ",\\Z"
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "mapPublisherCategories": {
+        "inputHeaders": {
+          "headers": [
+            "Categories",
+            "Hotel Category"
+          ]
+        },
+        "publisherId": "GOOGLEMYBUSINESS"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "External Listings ID"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "locations/",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "splitColumn": {
+        "inputHeader": "Address Lines",
+        "newColumnHeaders": [
+          "Address Line 1",
+          "Address Line 2",
+          "Address Line 3"
+        ],
+        "delimiter": ","
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Attribute Names"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "attributes/",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Attribute Names",
+          "Attribute Values"
+        ],
+        "newColumnHeader": "Attributes",
+        "delimiter": ","
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Attributes"
+          ]
+        },
+        "plugin": "listToObject",
+        "function": "listToObject"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Attributes"
+          ]
+        },
+        "valueToFind": {
+          "regex": "[\"{}]"
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Monday Open Time",
+            "Monday Close Time",
+            "Tuesday Open Time",
+            "Tuesday Close Time",
+            "Wednesday Open Time",
+            "Wednesday Close Time",
+            "Thursday Open Time",
+            "Thursday Close Time",
+            "Friday Open Time",
+            "Friday Close Time",
+            "Saturday Open Time",
+            "Saturday Close Time",
+            "Sunday Open Time",
+            "Sunday Close Time"
+          ]
+        },
+        "plugin": "convertTime",
+        "function": "convertTime"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Monday IsClosed",
+            "Access Hours - Monday Closed",
+            "Breakfast Hours - Monday Closed",
+            "Brunch Hours - Monday Closed",
+            "Delivery Hours - Monday Closed",
+            "Dinner Hours - Monday Closed",
+            "Drive Through Hours - Monday Closed",
+            "Happy Hour Hours - Monday Closed",
+            "Kitchen Hours - Monday Closed",
+            "Lunch Hours - Monday Closed",
+            "Online Service Hours - Monday Closed",
+            "Pickup Hours - Monday Closed",
+            "Senior Hours - Monday Closed",
+            "Takeout Hours - Monday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "mondayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Tuesday IsClosed",
+            "Access Hours - Tuesday Closed",
+            "Breakfast Hours - Tuesday Closed",
+            "Brunch Hours - Tuesday Closed",
+            "Delivery Hours - Tuesday Closed",
+            "Dinner Hours - Tuesday Closed",
+            "Drive Through Hours - Tuesday Closed",
+            "Happy Hour Hours - Tuesday Closed",
+            "Kitchen Hours - Tuesday Closed",
+            "Lunch Hours - Tuesday Closed",
+            "Online Service Hours - Tuesday Closed",
+            "Pickup Hours - Tuesday Closed",
+            "Senior Hours - Tuesday Closed",
+            "Takeout Hours - Tuesday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "tuesdayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Wednesday IsClosed",
+            "Access Hours - Wednesday Closed",
+            "Breakfast Hours - Wednesday Closed",
+            "Brunch Hours - Wednesday Closed",
+            "Delivery Hours - Wednesday Closed",
+            "Dinner Hours - Wednesday Closed",
+            "Drive Through Hours - Wednesday Closed",
+            "Happy Hour Hours - Wednesday Closed",
+            "Kitchen Hours - Wednesday Closed",
+            "Lunch Hours - Wednesday Closed",
+            "Online Service Hours - Wednesday Closed",
+            "Pickup Hours - Wednesday Closed",
+            "Senior Hours - Wednesday Closed",
+            "Takeout Hours - Wednesday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "wednesdayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Thursday IsClosed",
+            "Access Hours - Thursday Closed",
+            "Breakfast Hours - Thursday Closed",
+            "Brunch Hours - Thursday Closed",
+            "Delivery Hours - Thursday Closed",
+            "Dinner Hours - Thursday Closed",
+            "Drive Through Hours - Thursday Closed",
+            "Happy Hour Hours - Thursday Closed",
+            "Kitchen Hours - Thursday Closed",
+            "Lunch Hours - Thursday Closed",
+            "Online Service Hours - Thursday Closed",
+            "Pickup Hours - Thursday Closed",
+            "Senior Hours - Thursday Closed",
+            "Takeout Hours - Thursday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "thursdayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Friday IsClosed",
+            "Access Hours - Friday Closed",
+            "Breakfast Hours - Friday Closed",
+            "Brunch Hours - Friday Closed",
+            "Delivery Hours - Friday Closed",
+            "Dinner Hours - Friday Closed",
+            "Drive Through Hours - Friday Closed",
+            "Happy Hour Hours - Friday Closed",
+            "Kitchen Hours - Friday Closed",
+            "Lunch Hours - Friday Closed",
+            "Online Service Hours - Friday Closed",
+            "Pickup Hours - Friday Closed",
+            "Senior Hours - Friday Closed",
+            "Takeout Hours - Friday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "fridayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Saturday IsClosed",
+            "Access Hours - Saturday Closed",
+            "Breakfast Hours - Saturday Closed",
+            "Brunch Hours - Saturday Closed",
+            "Delivery Hours - Saturday Closed",
+            "Dinner Hours - Saturday Closed",
+            "Drive Through Hours - Saturday Closed",
+            "Happy Hour Hours - Saturday Closed",
+            "Kitchen Hours - Saturday Closed",
+            "Lunch Hours - Saturday Closed",
+            "Online Service Hours - Saturday Closed",
+            "Pickup Hours - Saturday Closed",
+            "Senior Hours - Saturday Closed",
+            "Takeout Hours - Saturday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "saturdayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Sunday IsClosed",
+            "Access Hours - Sunday Closed",
+            "Breakfast Hours - Sunday Closed",
+            "Brunch Hours - Sunday Closed",
+            "Delivery Hours - Sunday Closed",
+            "Dinner Hours - Sunday Closed",
+            "Drive Through Hours - Sunday Closed",
+            "Happy Hour Hours - Sunday Closed",
+            "Kitchen Hours - Sunday Closed",
+            "Lunch Hours - Sunday Closed",
+            "Online Service Hours - Sunday Closed",
+            "Pickup Hours - Sunday Closed",
+            "Senior Hours - Sunday Closed",
+            "Takeout Hours - Sunday Closed"
+          ]
+        },
+        "plugin": "closedCheck",
+        "function": "sundayClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Coming Soon (Month)",
+            "Coming Soon (Day)"
+          ]
+        },
+        "plugin": "addZero",
+        "function": "addZero"
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Coming Soon (Year)",
+          "Coming Soon (Month)",
+          "Coming Soon (Day)"
+        ],
+        "newColumnHeader": "Coming Soon",
+        "delimiter": "-"
+      }
+    },
+    {
+      "removeUnwantedChars": {
+        "inputHeaders": {
+          "headers": [
+            "Main Phone"
+          ]
+        },
+        "cleanOptions": [
+          "REMOVE_NON_NUMERICS"
+        ]
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Reopening Date"
+          ]
+        },
+        "plugin": "temporarilyClosed",
+        "function": "temporarilyClosed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Phone Extension"
+          ]
+        },
+        "plugin": "countryCodeToPhoneExtension",
+        "function": "countryCodeToPhoneExtension"
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Phone Extension",
+          "Main Phone"
+        ],
+        "newColumnHeader": "Main Phone Number",
+        "delimiter": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Main Phone Number"
+          ]
+        },
+        "valueToFind": {
+          "regex": "^(.{1,5})$"
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Coming Soon"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "--",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Access Hours - Monday Open Time",
+            "Access Hours - Monday Close Time",
+            "Access Hours - Tuesday Open Time",
+            "Access Hours - Tuesday Close Time",
+            "Access Hours - Wednesday Open Time",
+            "Access Hours - Wednesday Close Time",
+            "Access Hours - Thursday Open Time",
+            "Access Hours - Thursday Close Time",
+            "Access Hours - Friday Open Time",
+            "Access Hours - Friday Close Time",
+            "Access Hours - Saturday Open Time",
+            "Access Hours - Saturday Close Time",
+            "Access Hours - Sunday Open Time",
+            "Access Hours - Sunday Close Time",
+            "Breakfast Hours - Monday Open Time",
+            "Breakfast Hours - Monday Close Time",
+            "Breakfast Hours - Tuesday Open Time",
+            "Breakfast Hours - Tuesday Close Time",
+            "Breakfast Hours - Wednesday Open Time",
+            "Breakfast Hours - Wednesday Close Time",
+            "Breakfast Hours - Thursday Open Time",
+            "Breakfast Hours - Thursday Close Time",
+            "Breakfast Hours - Friday Open Time",
+            "Breakfast Hours - Friday Close Time",
+            "Breakfast Hours - Saturday Open Time",
+            "Breakfast Hours - Saturday Close Time",
+            "Breakfast Hours - Sunday Open Time",
+            "Breakfast Hours - Sunday Close Time",
+            "Brunch Hours - Monday Open Time",
+            "Brunch Hours - Monday Close Time",
+            "Brunch Hours - Tuesday Open Time",
+            "Brunch Hours - Tuesday Close Time",
+            "Brunch Hours - Wednesday Open Time",
+            "Brunch Hours - Wednesday Close Time",
+            "Brunch Hours - Thursday Open Time",
+            "Brunch Hours - Thursday Close Time",
+            "Brunch Hours - Friday Open Time",
+            "Brunch Hours - Friday Close Time",
+            "Brunch Hours - Saturday Open Time",
+            "Brunch Hours - Saturday Close Time",
+            "Brunch Hours - Sunday Open Time",
+            "Brunch Hours - Sunday Close Time",
+            "Delivery Hours - Monday Open Time",
+            "Delivery Hours - Monday Close Time",
+            "Delivery Hours - Tuesday Open Time",
+            "Delivery Hours - Tuesday Close Time",
+            "Delivery Hours - Wednesday Open Time",
+            "Delivery Hours - Wednesday Close Time",
+            "Delivery Hours - Thursday Open Time",
+            "Delivery Hours - Thursday Close Time",
+            "Delivery Hours - Friday Open Time",
+            "Delivery Hours - Friday Close Time",
+            "Delivery Hours - Saturday Open Time",
+            "Delivery Hours - Saturday Close Time",
+            "Delivery Hours - Sunday Open Time",
+            "Delivery Hours - Sunday Close Time",
+            "Dinner Hours - Monday Open Time",
+            "Dinner Hours - Monday Close Time",
+            "Dinner Hours - Tuesday Open Time",
+            "Dinner Hours - Tuesday Close Time",
+            "Dinner Hours - Wednesday Open Time",
+            "Dinner Hours - Wednesday Close Time",
+            "Dinner Hours - Thursday Open Time",
+            "Dinner Hours - Thursday Close Time",
+            "Dinner Hours - Friday Open Time",
+            "Dinner Hours - Friday Close Time",
+            "Dinner Hours - Saturday Open Time",
+            "Dinner Hours - Saturday Close Time",
+            "Dinner Hours - Sunday Open Time",
+            "Dinner Hours - Sunday Close Time",
+            "Drive Through Hours - Monday Open Time",
+            "Drive Through Hours - Monday Close Time",
+            "Drive Through Hours - Tuesday Open Time",
+            "Drive Through Hours - Tuesday Close Time",
+            "Drive Through Hours - Wednesday Open Time",
+            "Drive Through Hours - Wednesday Close Time",
+            "Drive Through Hours - Thursday Open Time",
+            "Drive Through Hours - Thursday Close Time",
+            "Drive Through Hours - Friday Open Time",
+            "Drive Through Hours - Friday Close Time",
+            "Drive Through Hours - Saturday Open Time",
+            "Drive Through Hours - Saturday Close Time",
+            "Drive Through Hours - Sunday Open Time",
+            "Drive Through Hours - Sunday Close Time",
+            "Happy Hours - Monday Open Time",
+            "Happy Hours - Monday Close Time",
+            "Happy Hours - Tuesday Open Time",
+            "Happy Hours - Tuesday Close Time",
+            "Happy Hours - Wednesday Open Time",
+            "Happy Hours - Wednesday Close Time",
+            "Happy Hours - Thursday Open Time",
+            "Happy Hours - Thursday Close Time",
+            "Happy Hours - Friday Open Time",
+            "Happy Hours - Friday Close Time",
+            "Happy Hours - Saturday Open Time",
+            "Happy Hours - Saturday Close Time",
+            "Happy Hours - Sunday Open Time",
+            "Happy Hours - Sunday Close Time",
+            "Kitchen Hours - Monday Open Time",
+            "Kitchen Hours - Monday Close Time",
+            "Kitchen Hours - Tuesday Open Time",
+            "Kitchen Hours - Tuesday Close Time",
+            "Kitchen Hours - Wednesday Open Time",
+            "Kitchen Hours - Wednesday Close Time",
+            "Kitchen Hours - Thursday Open Time",
+            "Kitchen Hours - Thursday Close Time",
+            "Kitchen Hours - Friday Open Time",
+            "Kitchen Hours - Friday Close Time",
+            "Kitchen Hours - Saturday Open Time",
+            "Kitchen Hours - Saturday Close Time",
+            "Kitchen Hours - Sunday Open Time",
+            "Kitchen Hours - Sunday Close Time",
+            "Lunch Hours - Monday Open Time",
+            "Lunch Hours - Monday Close Time",
+            "Lunch Hours - Tuesday Open Time",
+            "Lunch Hours - Tuesday Close Time",
+            "Lunch Hours - Wednesday Open Time",
+            "Lunch Hours - Wednesday Close Time",
+            "Lunch Hours - Thursday Open Time",
+            "Lunch Hours - Thursday Close Time",
+            "Lunch Hours - Friday Open Time",
+            "Lunch Hours - Friday Close Time",
+            "Lunch Hours - Saturday Open Time",
+            "Lunch Hours - Saturday Close Time",
+            "Lunch Hours - Sunday Open Time",
+            "Lunch Hours - Sunday Close Time",
+            "Online Service Hours - Monday Open Time",
+            "Online Service Hours - Monday Close Time",
+            "Online Service Hours - Tuesday Open Time",
+            "Online Service Hours - Tuesday Close Time",
+            "Online Service Hours - Wednesday Open Time",
+            "Online Service Hours - Wednesday Close Time",
+            "Online Service Hours - Thursday Open Time",
+            "Online Service Hours - Thursday Close Time",
+            "Online Service Hours - Friday Open Time",
+            "Online Service Hours - Friday Close Time",
+            "Online Service Hours - Saturday Open Time",
+            "Online Service Hours - Saturday Close Time",
+            "Online Service Hours - Sunday Open Time",
+            "Online Service Hours - Sunday Close Time",
+            "Pickup Hours - Monday Open Time",
+            "Pickup Hours - Monday Close Time",
+            "Pickup Hours - Tuesday Open Time",
+            "Pickup Hours - Tuesday Close Time",
+            "Pickup Hours - Wednesday Open Time",
+            "Pickup Hours - Wednesday Close Time",
+            "Pickup Hours - Thursday Open Time",
+            "Pickup Hours - Thursday Close Time",
+            "Pickup Hours - Friday Open Time",
+            "Pickup Hours - Friday Close Time",
+            "Pickup Hours - Saturday Open Time",
+            "Pickup Hours - Saturday Close Time",
+            "Pickup Hours - Sunday Open Time",
+            "Pickup Hours - Sunday Close Time",
+            "Senior Hours - Monday Open Time",
+            "Senior Hours - Monday Close Time",
+            "Senior Hours - Tuesday Open Time",
+            "Senior Hours - Tuesday Close Time",
+            "Senior Hours - Wednesday Open Time",
+            "Senior Hours - Wednesday Close Time",
+            "Senior Hours - Thursday Open Time",
+            "Senior Hours - Thursday Close Time",
+            "Senior Hours - Friday Open Time",
+            "Senior Hours - Friday Close Time",
+            "Senior Hours - Saturday Open Time",
+            "Senior Hours - Saturday Close Time",
+            "Senior Hours - Sunday Open Time",
+            "Senior Hours - Sunday Close Time",
+            "Takeout Hours - Monday Open Time",
+            "Takeout Hours - Monday Close Time",
+            "Takeout Hours - Tuesday Open Time",
+            "Takeout Hours - Tuesday Close Time",
+            "Takeout Hours - Wednesday Open Time",
+            "Takeout Hours - Wednesday Close Time",
+            "Takeout Hours - Thursday Open Time",
+            "Takeout Hours - Thursday Close Time",
+            "Takeout Hours - Friday Open Time",
+            "Takeout Hours - Friday Close Time",
+            "Takeout Hours - Saturday Open Time",
+            "Takeout Hours - Saturday Close Time",
+            "Takeout Hours - Sunday Open Time",
+            "Takeout Hours - Sunday Close Time"
+          ]
+        },
+        "plugin": "convertAdditionalHours",
+        "function": "convertAdditionalHours"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Languages"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "-",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "_"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Closed"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "OPEN",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "FALSE"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Closed"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "CLOSED_TEMPORARILY",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "TRUE"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Closed"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "CLOSED_PERMANENTLY",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "TRUE"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Special Hours Start Date"
+          ]
+        },
+        "plugin": "handleHolidayHours",
+        "function": "specialHoursStartDate"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Special Hours Open Time"
+          ]
+        },
+        "plugin": "handleHolidayHours",
+        "function": "specialHoursOpenIntervalStart"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Special Hours Close Time"
+          ]
+        },
+        "plugin": "handleHolidayHours",
+        "function": "specialHoursOpenIntervalClose"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Special Hours IsClosed"
+          ]
+        },
+        "plugin": "handleHolidayHours",
+        "function": "specialHoursIsClosed"
+      }
+    },
+    {
+      "splitColumn": {
+        "inputHeader": "Special Hours Start Date",
+        "newColumnHeaders": [
+          "HolidayHoursStartDate[0]",
+          "HolidayHoursStartDate[1]",
+          "HolidayHoursStartDate[2]",
+          "HolidayHoursStartDate[3]",
+          "HolidayHoursStartDate[4]",
+          "HolidayHoursStartDate[5]",
+          "HolidayHoursStartDate[6]",
+          "HolidayHoursStartDate[7]",
+          "HolidayHoursStartDate[8]",
+          "HolidayHoursStartDate[9]"
+        ],
+        "delimiter": ","
+      }
+    },
+    {
+      "splitColumn": {
+        "inputHeader": "Special Hours Open Time",
+        "newColumnHeaders": [
+          "SpecialHoursOpenTime[0]",
+          "SpecialHoursOpenTime[1]",
+          "SpecialHoursOpenTime[2]",
+          "SpecialHoursOpenTime[3]",
+          "SpecialHoursOpenTime[4]",
+          "SpecialHoursOpenTime[5]",
+          "SpecialHoursOpenTime[6]",
+          "SpecialHoursOpenTime[7]",
+          "SpecialHoursOpenTime[8]",
+          "SpecialHoursOpenTime[9]"
+        ],
+        "delimiter": ","
+      }
+    },
+    {
+      "splitColumn": {
+        "inputHeader": "Special Hours Close Time",
+        "newColumnHeaders": [
+          "SpecialHoursCloseTime[0]",
+          "SpecialHoursCloseTime[1]",
+          "SpecialHoursCloseTime[2]",
+          "SpecialHoursCloseTime[3]",
+          "SpecialHoursCloseTime[4]",
+          "SpecialHoursCloseTime[5]",
+          "SpecialHoursCloseTime[6]",
+          "SpecialHoursCloseTime[7]",
+          "SpecialHoursCloseTime[8]",
+          "SpecialHoursCloseTime[9]"
+        ],
+        "delimiter": ","
+      }
+    },
+    {
+      "splitColumn": {
+        "inputHeader": "Special Hours IsClosed",
+        "newColumnHeaders": [
+          "SpecialHoursIsClosed[0]",
+          "SpecialHoursIsClosed[1]",
+          "SpecialHoursIsClosed[2]",
+          "SpecialHoursIsClosed[3]",
+          "SpecialHoursIsClosed[4]",
+          "SpecialHoursIsClosed[5]",
+          "SpecialHoursIsClosed[6]",
+          "SpecialHoursIsClosed[7]",
+          "SpecialHoursIsClosed[8]",
+          "SpecialHoursIsClosed[9]"
+        ],
+        "delimiter": ","
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Accessibility Details"
+          ]
+        },
+        "plugin": "convertAccessibilityDetails",
+        "function": "convertAccessibilityDetails"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Airport Shuttle"
+          ]
+        },
+        "plugin": "convertAirportShuttle",
+        "function": "convertAirportShuttle"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "All Inclusive"
+          ]
+        },
+        "plugin": "convertAllInclusive",
+        "function": "convertAllInclusive"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Breakfast"
+          ]
+        },
+        "plugin": "convertBreakfast",
+        "function": "convertBreakfast"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Buffet"
+          ]
+        },
+        "plugin": "convertBuffet",
+        "function": "convertBuffet"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Fitness Center"
+          ]
+        },
+        "plugin": "convertFitnessCenter",
+        "function": "convertFitnessCenter"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Front Desk"
+          ]
+        },
+        "plugin": "convertFrontDesk",
+        "function": "convertFrontDesk"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Housekeeping"
+          ]
+        },
+        "plugin": "convertHousekeeping",
+        "function": "convertHouskeeping"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Laundry"
+          ]
+        },
+        "plugin": "convertLaundry",
+        "function": "convertLaundry"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Parking"
+          ]
+        },
+        "plugin": "convertParkingAvailable",
+        "function": "convertParkingAvailable"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Pets Allowed"
+          ]
+        },
+        "plugin": "convertPetsAllowed",
+        "function": "convertPetsAllowed"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Private Car Service"
+          ]
+        },
+        "plugin": "convertPrivateCarService",
+        "function": "convertPrivateCarService"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Room Service"
+          ]
+        },
+        "plugin": "convertRoomService",
+        "function": "convertRoomService"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Self Parking"
+          ]
+        },
+        "plugin": "convertSelfParkingAvailable",
+        "function": "convertSelfParkingAvailable"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Valet Parking"
+          ]
+        },
+        "plugin": "convertValetParkingAvailable",
+        "function": "convertValetParkingAvailable"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Wifi Available"
+          ]
+        },
+        "plugin": "convertWifiAvailable",
+        "function": "convertWifiAvailable"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Wifi Details"
+          ]
+        },
+        "plugin": "convertWifiDetails",
+        "function": "convertWifiDetails"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Watercraft Rental"
+          ]
+        },
+        "plugin": "convertWatercraft",
+        "function": "convertWatercraft"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Bicycle"
+          ]
+        },
+        "plugin": "convertBicycles",
+        "function": "convertBicycle"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Front Desk",
+            "Concierge",
+            "Elevator",
+            "Baggage Storage",
+            "Laundry",
+            "Social Hour",
+            "Wake Up Calls",
+            "Convenience Store",
+            "Gift Shop",
+            "Currency Exchange",
+            "Payment Options",
+            "Kids Stay Free",
+            "Max Number Of Kids Stay Free",
+            "Smoke Free Property",
+            "All Inclusive",
+            "Room Service",
+            "Restaurant Count",
+            "Food and Drink \u003e Table Service",
+            "Buffet",
+            "Table Service",
+            "Breakfast",
+            "Bar",
+            "Vending Machine",
+            "Pools",
+            "Indoor Pools",
+            "Indoor Pool Count",
+            "Outdoor Pools",
+            "Outdoor Pools Count",
+            "Hot Tub",
+            "Waterslide",
+            "Lazy River",
+            "Adult Pool",
+            "Wading Pool",
+            "Wave Pool",
+            "Water Park",
+            "Fitness Center",
+            "Elliptical Machine",
+            "Treadmill",
+            "Weight Machine",
+            "Free Weights",
+            "Spa",
+            "Salon",
+            "Sauna",
+            "Massage",
+            "Doctor On Call",
+            "Game Room",
+            "Nightclub",
+            "Casino",
+            "Boutique Stores",
+            "Tennis",
+            "Golf",
+            "Horseback Riding",
+            "Snorkeling",
+            "Scuba",
+            "Water Skiing",
+            "Beach Access",
+            "Private Beach",
+            "Beach Front",
+            "Airport Transfer",
+            "Airport Shuttle",
+            "Local Shuttle",
+            "Car Rental",
+            "Private Car Service",
+            "Babysitting",
+            "Kids Friendly",
+            "Kids Club",
+            "Wifi Available",
+            "Wifi Details",
+            "Business Center",
+            "Meeting Room Count",
+            "Mobility Accessible",
+            "Accessibility Details",
+            "Pets Allowed",
+            "Dogs Allowed",
+            "Cats Allowed",
+            "Parking",
+            "Self Parking",
+            "Valet Parking",
+            "Housekeeping",
+            "Turndown Service",
+            "Common Areas Enhanced Cleaning",
+            "Guest Rooms Enhanced Cleaning",
+            "Commercial Grade Disinfectant Used",
+            "Employees Trained In Cleaning Procedures",
+            "Employees Trained In Hand Washing",
+            "Employees Wear Protective Equipment",
+            "Safe Handling For Food Services",
+            "Additional Sanitation In Food Areas",
+            "Individually Packages Meals Available",
+            "Disposable Flatware",
+            "Single Use Menus",
+            "High Touch Items Removed From Common Areas",
+            "High Touch Items Removed From Guest Rooms",
+            "Digital Guest Room Keys",
+            "Plastic Keycards Disinfected Or Discarded",
+            "Room Bookings Buffer",
+            "Request Only Housekeeping",
+            "Contactless Checkin Or Checkout",
+            "Sanitizer Available",
+            "In Room Hygiene Kits",
+            "Protective Equipment Available",
+            "Masks Required",
+            "Physical Distancing Required",
+            "Plexiglass Used",
+            "Limited Occupancy In Shared Areas",
+            "Private Spaces In Wellness Areas",
+            "Common Areas Arranged For Distancing",
+            "Energy Conservation Program",
+            "Indepent Organization Audits Energy Use",
+            "Carbon Free Energy Sources",
+            "Energy Efficient Heating And Cooling Systems",
+            "Energy Efficient Lighting",
+            "Energy Saving Thermostats",
+            "Recycling Program",
+            "Donates Excess Food",
+            "Composts Excess Food",
+            "Soap Donation Program",
+            "Toiletry Donation Program",
+            "Safely Handles Hazardous Substances",
+            "Safely Disposes Electronics",
+            "Safely Disposes Batteries",
+            "Safely Disposes Lightbulbs",
+            "Refillable Toiletry Containers",
+            "Water Bottle Filling Stations",
+            "Compostable Food Containers And Cutlery",
+            "No Styrofoam Food Containers",
+            "No Single User Plastic Water Bottles",
+            "No Single Use Plastic Straws",
+            "Responsible Purchasing Policy",
+            "Organic Food And Beverages",
+            "Locally Sourced Food And Beverages",
+            "Responsibly Sources Seafood",
+            "Organic Cage Free Eggs",
+            "Vegetarian Meals Available",
+            "Vegan Meals Available",
+            "Eco Friendly Toiletries",
+            "Breeam Rating",
+            "Leed Rating",
+            "Eco Certifications"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "true",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "YES"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Front Desk",
+            "Concierge",
+            "Elevator",
+            "Baggage Storage",
+            "Laundry",
+            "Social Hour",
+            "Wake Up Calls",
+            "Convenience Store",
+            "Gift Shop",
+            "Currency Exchange",
+            "Payment Options",
+            "Kids Stay Free",
+            "Max Number Of Kids Stay Free",
+            "Smoke Free Property",
+            "All Inclusive",
+            "Room Service",
+            "Restaurant Count",
+            "Food and Drink \u003e Table Service",
+            "Buffet",
+            "Table Service",
+            "Breakfast",
+            "Bar",
+            "Vending Machine",
+            "Pools",
+            "Indoor Pools",
+            "Indoor Pool Count",
+            "Outdoor Pools",
+            "Outdoor Pools Count",
+            "Hot Tub",
+            "Waterslide",
+            "Lazy River",
+            "Adult Pool",
+            "Wading Pool",
+            "Wave Pool",
+            "Water Park",
+            "Fitness Center",
+            "Elliptical Machine",
+            "Treadmill",
+            "Weight Machine",
+            "Free Weights",
+            "Spa",
+            "Salon",
+            "Sauna",
+            "Massage",
+            "Doctor On Call",
+            "Game Room",
+            "Nightclub",
+            "Casino",
+            "Boutique Stores",
+            "Tennis",
+            "Golf",
+            "Horseback Riding",
+            "Snorkeling",
+            "Scuba",
+            "Water Skiing",
+            "Beach Access",
+            "Private Beach",
+            "Beach Front",
+            "Airport Transfer",
+            "Airport Shuttle",
+            "Local Shuttle",
+            "Car Rental",
+            "Private Car Service",
+            "Babysitting",
+            "Kids Friendly",
+            "Kids Club",
+            "Wifi Available",
+            "Wifi Details",
+            "Business Center",
+            "Meeting Room Count",
+            "Mobility Accessible",
+            "Accessibility Details",
+            "Pets Allowed",
+            "Dogs Allowed",
+            "Cats Allowed",
+            "Parking",
+            "Self Parking",
+            "Valet Parking",
+            "Housekeeping",
+            "Turndown Service",
+            "Common Areas Enhanced Cleaning",
+            "Guest Rooms Enhanced Cleaning",
+            "Commercial Grade Disinfectant Used",
+            "Employees Trained In Cleaning Procedures",
+            "Employees Trained In Hand Washing",
+            "Employees Wear Protective Equipment",
+            "Safe Handling For Food Services",
+            "Additional Sanitation In Food Areas",
+            "Individually Packages Meals Available",
+            "Disposable Flatware",
+            "Single Use Menus",
+            "High Touch Items Removed From Common Areas",
+            "High Touch Items Removed From Guest Rooms",
+            "Digital Guest Room Keys",
+            "Plastic Keycards Disinfected Or Discarded",
+            "Room Bookings Buffer",
+            "Request Only Housekeeping",
+            "Contactless Checkin Or Checkout",
+            "Sanitizer Available",
+            "In Room Hygiene Kits",
+            "Protective Equipment Available",
+            "Masks Required",
+            "Physical Distancing Required",
+            "Plexiglass Used",
+            "Limited Occupancy In Shared Areas",
+            "Private Spaces In Wellness Areas",
+            "Common Areas Arranged For Distancing",
+            "Energy Conservation Program",
+            "Indepent Organization Audits Energy Use",
+            "Carbon Free Energy Sources",
+            "Energy Efficient Heating And Cooling Systems",
+            "Energy Efficient Lighting",
+            "Energy Saving Thermostats",
+            "Recycling Program",
+            "Donates Excess Food",
+            "Composts Excess Food",
+            "Soap Donation Program",
+            "Toiletry Donation Program",
+            "Safely Handles Hazardous Substances",
+            "Safely Disposes Electronics",
+            "Safely Disposes Batteries",
+            "Safely Disposes Lightbulbs",
+            "Refillable Toiletry Containers",
+            "Water Bottle Filling Stations",
+            "Compostable Food Containers And Cutlery",
+            "No Styrofoam Food Containers",
+            "No Single User Plastic Water Bottles",
+            "No Single Use Plastic Straws",
+            "Responsible Purchasing Policy",
+            "Organic Food And Beverages",
+            "Locally Sourced Food And Beverages",
+            "Responsibly Sources Seafood",
+            "Organic Cage Free Eggs",
+            "Vegetarian Meals Available",
+            "Vegan Meals Available",
+            "Eco Friendly Toiletries",
+            "Breeam Rating",
+            "Leed Rating",
+            "Eco Certifications"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "false",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "NO"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Logo"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "logoPhotoList"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Logo Description"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "logoPhotoDescription"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Cover Photo"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "coverPhotoList"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Cover Photo Description"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "coverPhotoDescription"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Photo Gallery"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "photoList"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Photo Description"
+          ]
+        },
+        "plugin": "convertGooglePhotos",
+        "function": "photoDescription"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Logo",
+            "Cover Photo",
+            "Photo Gallery"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "\"",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Check In Time (Min)",
+            "Check Out Time (Minutes)"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "00"
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Check In Time (Hours)",
+          "Check In Time (Min)"
+        ],
+        "newColumnHeader": "Check In Time",
+        "delimiter": ":"
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Check Out Time (Hours)",
+          "Check Out Time (Minutes)"
+        ],
+        "newColumnHeader": "Check Out Time",
+        "delimiter": ":"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Check In Time",
+            "Check Out Time"
+          ]
+        },
+        "valueToFind": {
+          "regex": "\\A:00"
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Hotel Category"
+          ]
+        },
+        "plugin": "filterCategories",
+        "function": "hotelCategoryFilter"
+      }
+    },
+    {
+      "filterRows": {
+        "action": "KEEP",
+        "combinator": "AND",
+        "rules": [
+          {
+            "columnHeader": "Hotel Category",
+            "conditional": "EQUALS",
+            "conditionalInput": "true"
+          }
+        ]
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Monday Close Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[8]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 8
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[8]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 8
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "breeamRating",
+      "header": "Breeam Rating",
+      "subfieldPath": []
+    },
+    {
+      "field": "wakeUpCalls",
+      "header": "Wake Up Calls",
+      "subfieldPath": []
+    },
+    {
+      "field": "giftShop",
+      "header": "Gift Shop",
+      "subfieldPath": []
+    },
+    {
+      "field": "localeCode",
+      "header": "Languages",
+      "subfieldPath": []
+    },
+    {
+      "field": "valetParking",
+      "header": "Valet Parking",
+      "subfieldPath": []
+    },
+    {
+      "field": "organicFoodAndBeverages",
+      "header": "Organic Food And Beverages",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Monday Close Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "organicCageFreeEggs",
+      "header": "Organic Cage Free Eggs",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[1]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 1
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Wednesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "businessCenter",
+      "header": "Business Center",
+      "subfieldPath": []
+    },
+    {
+      "field": "additionalSanitationInFoodAreas",
+      "header": "Additional Sanitation In Food Areas",
+      "subfieldPath": []
+    },
+    {
+      "field": "singleUsePlasticStrawsBanned",
+      "header": "No Single Use Plastic Straws",
+      "subfieldPath": []
+    },
+    {
+      "field": "beachAccess",
+      "header": "Beach Access",
+      "subfieldPath": []
+    },
+    {
+      "field": "meetingRoomCount",
+      "header": "Meeting Room Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[9]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 9
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[7]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 7
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "categories",
+      "header": "Categories",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Sunday Close Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "videos",
+      "header": "Video Description",
+      "subfieldPath": [
+        {
+          "name": "description"
+        }
+      ]
+    },
+    {
+      "field": "fitnessCenter",
+      "header": "Fitness Center",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Wednesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Monday Open Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Saturday Open Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "googlePlaceId",
+      "header": "Google Place ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "address",
+      "header": "Address \u003e Postal Code",
+      "subfieldPath": [
+        {
+          "name": "postalCode"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Tuesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "energySavingThermostats",
+      "header": "Energy Saving Thermostats",
+      "subfieldPath": []
+    },
+    {
+      "field": "horsebackRiding",
+      "header": "Horseback Riding",
+      "subfieldPath": []
+    },
+    {
+      "field": "ellipticalMachine",
+      "header": "Elliptical Machine",
+      "subfieldPath": []
+    },
+    {
+      "field": "toiletryDonationProgram",
+      "header": "Toiletry Donation Program",
+      "subfieldPath": []
+    },
+    {
+      "field": "contactlessCheckinOrCheckout",
+      "header": "Contactless Checkin Or Checkout",
+      "subfieldPath": []
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Wednesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "doctorOnCall",
+      "header": "Doctor On Call",
+      "subfieldPath": []
+    },
+    {
+      "field": "commonAreasEnhancedCleaning",
+      "header": "Common Areas Enhanced Cleaning",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Friday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Monday Open Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[0]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 0
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "massage",
+      "header": "Massage",
+      "subfieldPath": []
+    },
+    {
+      "field": "carbonFreeEnergySources",
+      "header": "Carbon Free Energy Sources",
+      "subfieldPath": []
+    },
+    {
+      "field": "employeesWearProtectiveEquipment",
+      "header": "Employees Wear Protective Equipment",
+      "subfieldPath": []
+    },
+    {
+      "field": "localShuttle",
+      "header": "Local Shuttle",
+      "subfieldPath": []
+    },
+    {
+      "field": "limitedOccupancyInSharedAreas",
+      "header": "Limited Occupancy In Shared Areas",
+      "subfieldPath": []
+    },
+    {
+      "field": "ecoFriendlyToiletries",
+      "header": "Eco Friendly Toiletries",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[6]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 6
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[6]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 6
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "safelyDisposesElectronics",
+      "header": "Safely Disposes Electronics",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Reopening Date",
+      "subfieldPath": [
+        {
+          "name": "reopenDate"
+        }
+      ]
+    },
+    {
+      "field": "wadingPool",
+      "header": "Wading Pool",
+      "subfieldPath": []
+    },
+    {
+      "field": "safelyHandlesHazardousSubstances",
+      "header": "Safely Handles Hazardous Substances",
+      "subfieldPath": []
+    },
+    {
+      "field": "nightclub",
+      "header": "Nightclub",
+      "subfieldPath": []
+    },
+    {
+      "field": "disposableFlatware",
+      "header": "Disposable Flatware",
+      "subfieldPath": []
+    },
+    {
+      "field": "employeesTrainedInHandWashing",
+      "header": "Employees Trained In Hand Washing",
+      "subfieldPath": []
+    },
+    {
+      "field": "photoGallery",
+      "header": "Photo Description",
+      "subfieldPath": [
+        {
+          "name": "description"
+        }
+      ]
+    },
+    {
+      "field": "tableService",
+      "header": "Table Service",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Saturday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "baggageStorage",
+      "header": "Baggage Storage",
+      "subfieldPath": []
+    },
+    {
+      "field": "googleProfilePhoto",
+      "header": "Logo Description",
+      "subfieldPath": [
+        {
+          "name": "alternateText"
+        }
+      ]
+    },
+    {
+      "field": "freeWeights",
+      "header": "Free Weights",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[0]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 0
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "plasticKeycardsDisinfectedOrDiscarded",
+      "header": "Plastic Keycards Disinfected Or Discarded",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Wednesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "soapDonationProgram",
+      "header": "Soap Donation Program",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[7]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 7
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[5]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 5
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "parking",
+      "header": "Parking",
+      "subfieldPath": []
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Thursday Close Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "petsAllowed",
+      "header": "Pets Allowed",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Wednesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "safelyDisposesBatteries",
+      "header": "Safely Disposes Batteries",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Sunday Open Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "googleEntityRelationship",
+      "header": "Google Entity Relationship \u003e Type",
+      "subfieldPath": [
+        {
+          "name": "type"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[4]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 4
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "convenienceStore",
+      "header": "Convenience Store",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Wednesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Wednesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "googleCoverPhoto",
+      "header": "Cover Photo",
+      "subfieldPath": [
+        {
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "field": "independentOrganizationAuditsEnergyUse",
+      "header": "Indepent Organization Audits Energy Use",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[4]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 4
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Sunday Close Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[9]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 9
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Saturday Open Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "babysittingOffered",
+      "header": "Babysitting",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "outdoorPools",
+      "header": "Outdoor Pools",
+      "subfieldPath": []
+    },
+    {
+      "field": "wifiDetails",
+      "header": "Wifi Details",
+      "subfieldPath": []
+    },
+    {
+      "field": "dogsAllowed",
+      "header": "Dogs Allowed",
+      "subfieldPath": []
+    },
+    {
+      "field": "individuallyPackagedMealsAvailable",
+      "header": "Individually Packages Meals Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[5]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 5
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "highTouchItemsRemovedFromGuestRooms",
+      "header": "High Touch Items Removed From Guest Rooms",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[5]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 5
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "housekeeping",
+      "header": "Housekeeping",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Monday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "salon",
+      "header": "Salon",
+      "subfieldPath": []
+    },
+    {
+      "field": "golf",
+      "header": "Golf",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Wednesday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "recyclingProgram",
+      "header": "Recycling Program",
+      "subfieldPath": []
+    },
+    {
+      "field": "compostableFoodContainersAndCutlery",
+      "header": "Compostable Food Containers And Cutlery",
+      "subfieldPath": []
+    },
+    {
+      "field": "sanitizerAvailable",
+      "header": "Sanitizer Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Friday Close Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[3]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 3
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "digitalGuestRoomKeys",
+      "header": "Digital Guest Room Keys",
+      "subfieldPath": []
+    },
+    {
+      "field": "privateBeach",
+      "header": "Private Beach",
+      "subfieldPath": []
+    },
+    {
+      "field": "airportShuttle",
+      "header": "Airport Shuttle",
+      "subfieldPath": []
+    },
+    {
+      "field": "styrofoamFoodContainersBanned",
+      "header": "No Styrofoam Food Containers",
+      "subfieldPath": []
+    },
+    {
+      "field": "highTouchItemsRemovedFromCommonAreas",
+      "header": "High Touch Items Removed From Common Areas",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[4]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 4
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "displayCoordinate",
+      "header": "Display Coordinate \u003e Longitude",
+      "subfieldPath": [
+        {
+          "name": "longitude"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Friday Close Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "indoorPoolCount",
+      "header": "Indoor Pool Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Sunday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Friday Open Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Saturday Close Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Thursday Open Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "locallySourcedFoodAndBeverages",
+      "header": "Locally Sourced Food And Beverages",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Saturday Close Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "plexiglassUsed",
+      "header": "Plexiglass Used",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[2]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 2
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Tuesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Saturday Close Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Friday Open Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "beachFrontProperty",
+      "header": "Beach Front",
+      "subfieldPath": []
+    },
+    {
+      "field": "physicalDistancingRequired",
+      "header": "Physical Distancing Required",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[2]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 2
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Tuesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "mobilityAccessible",
+      "header": "Mobility Accessible",
+      "subfieldPath": []
+    },
+    {
+      "field": "catsAllowed",
+      "header": "Cats Allowed",
+      "subfieldPath": []
+    },
+    {
+      "field": "carRental",
+      "header": "Car Rental",
+      "subfieldPath": []
+    },
+    {
+      "field": "elevator",
+      "header": "Elevator",
+      "subfieldPath": []
+    },
+    {
+      "field": "kidFriendly",
+      "header": "Kids Friendly",
+      "subfieldPath": []
+    },
+    {
+      "field": "address",
+      "header": "Address \u003e Sublocality",
+      "subfieldPath": [
+        {
+          "name": "sublocality"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Monday Open Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[3]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 3
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Saturday Close Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "kidsStayFree",
+      "header": "Kids Stay Free",
+      "subfieldPath": []
+    },
+    {
+      "field": "roomService",
+      "header": "Room Service",
+      "subfieldPath": []
+    },
+    {
+      "field": "accessibilityDetails",
+      "header": "Accessibility Details",
+      "subfieldPath": []
+    },
+    {
+      "field": "refillableToiletryContainers",
+      "header": "Refillable Toiletry Containers",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[3]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 3
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "commercialGradeDisinfectantUsed",
+      "header": "Commercial Grade Disinfectant Used",
+      "subfieldPath": []
+    },
+    {
+      "field": "airportTransfer",
+      "header": "Airport Transfer",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Thursday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "energyEfficientHeatingAndCoolingSystems",
+      "header": "Energy Efficient Heating And Cooling Systems",
+      "subfieldPath": []
+    },
+    {
+      "field": "wifiAvailable",
+      "header": "Wifi Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Saturday Open Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[1]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 1
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Wednesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Wednesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "leedRating",
+      "header": "Leed Rating",
+      "subfieldPath": []
+    },
+    {
+      "field": "protectiveEquipmentAvailable",
+      "header": "Protective Equipment Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "outdoorPoolCount",
+      "header": "Outdoor Pools Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[2]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 2
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Monday Close Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Friday Open Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "address",
+      "header": "Address Line 1",
+      "subfieldPath": [
+        {
+          "name": "line1"
+        }
+      ]
+    },
+    {
+      "field": "address",
+      "header": "Address Line 2",
+      "subfieldPath": [
+        {
+          "name": "line2"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Thursday Open Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "address",
+      "header": "Address Line 3",
+      "subfieldPath": [
+        {
+          "name": "line3"
+        }
+      ]
+    },
+    {
+      "field": "veganMealsAvailable",
+      "header": "Vegan Meals Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Tuesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[5]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 5
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "sauna",
+      "header": "Sauna",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Tuesday IsClosed",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Sunday Open Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Sunday Close Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Tuesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[0]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 0
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Monday Open Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[0]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 0
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "energyEfficientLighting",
+      "header": "Energy Efficient Lighting",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Thursday Close Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Tuesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[9]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 9
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "address",
+      "header": "Address \u003e Region",
+      "subfieldPath": [
+        {
+          "name": "region"
+        }
+      ]
+    },
+    {
+      "field": "entityId",
+      "header": "Entity ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "wavePool",
+      "header": "Wave Pool",
+      "subfieldPath": []
+    },
+    {
+      "field": "safeHandlingForFoodServices",
+      "header": "Safe Handling For Food Services",
+      "subfieldPath": []
+    },
+    {
+      "field": "inRoomHygieneKits",
+      "header": "In Room Hygiene Kits",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Saturday Open Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Sunday Close Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "websiteUrl",
+      "header": "Website URL",
+      "subfieldPath": [
+        {
+          "name": "displayUrl"
+        }
+      ]
+    },
+    {
+      "field": "energyConservationProgram",
+      "header": "Energy Conservation Program",
+      "subfieldPath": []
+    },
+    {
+      "field": "buffetOptions",
+      "header": "Buffet",
+      "subfieldPath": []
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Monday Close Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[6]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 6
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Sunday Open Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursCloseTime[1]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 1
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "pools",
+      "header": "Pools",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[8]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 8
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "restaurantCount",
+      "header": "Restaurant Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Friday Close Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Sunday Open Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "displayCoordinate",
+      "header": "Display Coordinate \u003e Latitude",
+      "subfieldPath": [
+        {
+          "name": "latitude"
+        }
+      ]
+    },
+    {
+      "field": "privateSpacesInWellnessAreas",
+      "header": "Private Spaces In Wellness Areas",
+      "subfieldPath": []
+    },
+    {
+      "field": "landingPageUrl",
+      "header": "Landing Page URL",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Saturday Close Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "description",
+      "header": "Description",
+      "subfieldPath": []
+    },
+    {
+      "field": "adultPool",
+      "header": "Adult Pool",
+      "subfieldPath": []
+    },
+    {
+      "field": "singleUseMenus",
+      "header": "Single Use Menus",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[7]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 7
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "maxNumberOfKidsStayFree",
+      "header": "Max Number Of Kids Stay Free",
+      "subfieldPath": []
+    },
+    {
+      "field": "singleUsePlasticWaterBottlesBanned",
+      "header": "No Single User Plastic Water Bottles",
+      "subfieldPath": []
+    },
+    {
+      "field": "lazyRiver",
+      "header": "Lazy River",
+      "subfieldPath": []
+    },
+    {
+      "field": "waterBottleFillingStations",
+      "header": "Water Bottle Filling Stations",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[7]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 7
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "vendingMachine",
+      "header": "Vending Machine",
+      "subfieldPath": []
+    },
+    {
+      "field": "floorCount",
+      "header": "Floor Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "indoorPools",
+      "header": "Indoor Pools",
+      "subfieldPath": []
+    },
+    {
+      "field": "donatesExcessFood",
+      "header": "Donates Excess Food",
+      "subfieldPath": []
+    },
+    {
+      "field": "smokeFreeProperty",
+      "header": "Smoke Free Property",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[8]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 8
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "brunchHours",
+      "header": "Brunch Hours - Thursday Close Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Thursday Open Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "masksRequired",
+      "header": "Masks Required",
+      "subfieldPath": []
+    },
+    {
+      "field": "mainPhone",
+      "header": "Main Phone Number",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursOpenTime[6]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 6
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "laundry",
+      "header": "Laundry",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Tuesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Thursday Open Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[1]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 1
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "frontDesk",
+      "header": "Front Desk",
+      "subfieldPath": []
+    },
+    {
+      "field": "yearLastRenovated",
+      "header": "Year Last Renovated",
+      "subfieldPath": []
+    },
+    {
+      "field": "spa",
+      "header": "Spa",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Friday Open Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "googleAttributes",
+      "header": "Attributes",
+      "subfieldPath": []
+    },
+    {
+      "field": "waterSkiing",
+      "header": "Water Skiing",
+      "subfieldPath": []
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Thursday Close Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "socialHour",
+      "header": "Social Hour",
+      "subfieldPath": []
+    },
+    {
+      "field": "googleCoverPhoto",
+      "header": "Cover Photo Description",
+      "subfieldPath": [
+        {
+          "name": "alternateText"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Thursday Close Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "googleMyBusinessLabels",
+      "header": "GBP Labels",
+      "subfieldPath": []
+    },
+    {
+      "field": "paymentOptions",
+      "header": "Payment Options",
+      "subfieldPath": []
+    },
+    {
+      "field": "currencyExchange",
+      "header": "Currency Exchange",
+      "subfieldPath": []
+    },
+    {
+      "field": "responsiblePurchasingPolicy",
+      "header": "Responsible Purchasing Policy",
+      "subfieldPath": []
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Friday Close Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "boutiqueStores",
+      "header": "Boutique Stores",
+      "subfieldPath": []
+    },
+    {
+      "field": "privateCarService",
+      "header": "Private Car Service",
+      "subfieldPath": []
+    },
+    {
+      "field": "waterPark",
+      "header": "Water Park",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[2]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 2
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Monday Close Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "ecoCertifications",
+      "header": "Eco Certifications",
+      "subfieldPath": []
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Tuesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "countryCode",
+      "header": "Address \u003e Country Code",
+      "subfieldPath": []
+    },
+    {
+      "field": "roomBookingsBuffer",
+      "header": "Room Bookings Buffer",
+      "subfieldPath": []
+    },
+    {
+      "field": "requestOnlyHousekeeping",
+      "header": "Request Only Housekeeping",
+      "subfieldPath": []
+    },
+    {
+      "field": "happyHours",
+      "header": "Happy Hours - Tuesday Open Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Thursday Open Time",
+      "subfieldPath": [
+        {
+          "name": "thursday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "googleAccountId",
+      "header": "External Listings ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "photoGallery",
+      "header": "Photo Gallery",
+      "subfieldPath": [
+        {
+          "name": "image"
+        },
+        {
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "field": "responsiblySourcesSeafood",
+      "header": "Responsibly Sources Seafood",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[3]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 3
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "scuba",
+      "header": "Scuba",
+      "subfieldPath": []
+    },
+    {
+      "field": "turndownService",
+      "header": "Turndown Service",
+      "subfieldPath": []
+    },
+    {
+      "field": "commonAreasArrangedForDistancing",
+      "header": "Common Areas Arranged For Distancing",
+      "subfieldPath": []
+    },
+    {
+      "field": "weightMachine",
+      "header": "Weight Machine",
+      "subfieldPath": []
+    },
+    {
+      "field": "waterslide",
+      "header": "Waterslide",
+      "subfieldPath": []
+    },
+    {
+      "field": "treadmill",
+      "header": "Treadmill",
+      "subfieldPath": []
+    },
+    {
+      "field": "selfParking",
+      "header": "Self Parking",
+      "subfieldPath": []
+    },
+    {
+      "field": "googleEntityRelationship",
+      "header": "Google Entity Relationship \u003e Place Id",
+      "subfieldPath": [
+        {
+          "name": "placeId"
+        }
+      ]
+    },
+    {
+      "field": "videos",
+      "header": "Videos",
+      "subfieldPath": [
+        {
+          "name": "video"
+        },
+        {
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Wednesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "wednesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Friday Close Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "roomCount",
+      "header": "Room Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Tuesday Close Time",
+      "subfieldPath": [
+        {
+          "name": "tuesday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "snorkeling",
+      "header": "Snorkeling",
+      "subfieldPath": []
+    },
+    {
+      "field": "gameRoom",
+      "header": "Game Room",
+      "subfieldPath": []
+    },
+    {
+      "field": "tennis",
+      "header": "Tennis",
+      "subfieldPath": []
+    },
+    {
+      "field": "breakfast",
+      "header": "Breakfast",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "SpecialHoursIsClosed[9]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 9
+        },
+        {
+          "name": "isClosed"
+        }
+      ]
+    },
+    {
+      "field": "guestRoomsEnhancedCleaning",
+      "header": "Guest Rooms Enhanced Cleaning",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "HolidayHoursStartDate[4]",
+      "subfieldPath": [
+        {
+          "name": "holidayHours"
+        },
+        {
+          "index": 4
+        },
+        {
+          "name": "date"
+        }
+      ]
+    },
+    {
+      "field": "address",
+      "header": "Address \u003e City",
+      "subfieldPath": [
+        {
+          "name": "city"
+        }
+      ]
+    },
+    {
+      "field": "hours",
+      "header": "Friday Open Time",
+      "subfieldPath": [
+        {
+          "name": "friday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Sunday Open Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "kitchenHours",
+      "header": "Kitchen Hours - Sunday Close Time",
+      "subfieldPath": [
+        {
+          "name": "sunday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "field": "employeesTrainedInCleaningProcedures",
+      "header": "Employees Trained In Cleaning Procedures",
+      "subfieldPath": []
+    },
+    {
+      "field": "compostsExcessFood",
+      "header": "Composts Excess Food",
+      "subfieldPath": []
+    },
+    {
+      "field": "googleProfilePhoto",
+      "header": "Logo",
+      "subfieldPath": [
+        {
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "field": "vegetarianMealsAvailable",
+      "header": "Vegetarian Meals Available",
+      "subfieldPath": []
+    },
+    {
+      "field": "allInclusive",
+      "header": "All Inclusive",
+      "subfieldPath": []
+    },
+    {
+      "field": "bar",
+      "header": "Bar",
+      "subfieldPath": []
+    },
+    {
+      "field": "concierge",
+      "header": "Concierge",
+      "subfieldPath": []
+    },
+    {
+      "field": "hotTub",
+      "header": "Hot Tub",
+      "subfieldPath": []
+    },
+    {
+      "field": "casino",
+      "header": "Casino",
+      "subfieldPath": []
+    },
+    {
+      "field": "hours",
+      "header": "Saturday Open Time",
+      "subfieldPath": [
+        {
+          "name": "saturday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "closed",
+      "header": "Closed",
+      "subfieldPath": []
+    },
+    {
+      "field": "accessHours",
+      "header": "Access Hours - Monday Open Time",
+      "subfieldPath": [
+        {
+          "name": "monday"
+        },
+        {
+          "name": "openIntervals"
+        },
+        {
+          "name": "start"
+        }
+      ]
+    },
+    {
+      "field": "kidsClub",
+      "header": "Kids Club",
+      "subfieldPath": []
+    },
+    {
+      "field": "safelyDisposesLightbulbs",
+      "header": "Safely Disposes Lightbulbs",
+      "subfieldPath": []
+    }
+  ]
+}

@@ -2449,6 +2449,16 @@
         "type": "JSON",
         "header": "Hotel Category",
         "path": "categories.primaryCategory.name"
+      },
+      {
+        "type": "JSON",
+        "header": "Primary Category ID for Override",
+        "path": "categories.primaryCategory.name"
+      },
+      {
+        "type": "JSON",
+        "header": "Secondary Category IDs for Override",
+        "path": "categories.additionalCategories[].name"
       }
     ]
   },
@@ -3916,6 +3926,45 @@
           }
         ]
       }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Primary Category ID for Override",
+          "Secondary Category IDs for Override"
+        ],
+        "newColumnHeader": "Categories for GBP Override",
+        "delimiter": ","
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Categories for GBP Override"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "categories/",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Categories for GBP Override"
+          ]
+        },
+        "valueToFind": {
+          "regex": ",\\Z"
+        },
+        "replacement": ""
+      }
     }
   ],
   "mappings": [
@@ -4111,7 +4160,11 @@
     {
       "field": "categories",
       "header": "Categories",
-      "subfieldPath": []
+      "subfieldPath": [
+        {
+          "name": "yext"
+        }
+      ]
     },
     {
       "field": "brunchHours",
@@ -6677,6 +6730,15 @@
       "field": "safelyDisposesLightbulbs",
       "header": "Safely Disposes Lightbulbs",
       "subfieldPath": []
+    },
+    {
+      "field": "categories",
+      "header": "Categories for GBP Override",
+      "subfieldPath": [
+        {
+          "name": "googleBusinessProfile"
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-    "$id": "gbpHotel_hotelConnector",
+    "$id": "gbpHotel_hotelConnector2",
     "$schema": "https://schema.yext.com/config/km/connector/v4",
     "displayName": "GBP Hotel Connector",
     "entityTypes": [
